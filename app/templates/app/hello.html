@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Hello World{% endblock %}
+{% block body_class %}hello{% endblock %}
+
+{% block content %}
+<h1>Hello, World!</h1>
+<p>Velhinho! Aqui tem algumas páginas de exemplo deste projeto:</p>
+<ul>
+    <li><a href="{% url 'random_user_profile' %}">Perfil de Usuário Aleatório</a></li>
+    <li><a href="{% url 'current_weather' %}">Clima Agora</a></li>
+</ul>
+{% endblock %}

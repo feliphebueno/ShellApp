@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Random User Profile{% endblock %}
+{% block body_class %}profile{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Random User Profile</h2>
+    <img src="{{ picture }}" alt="User Picture" width="150" height="150"/><br><br>
+
+    <strong>Name:</strong> {{ name }}<br><br>
+    <strong>Email:</strong> {{ email }}<br><br>
+    <strong>Gender:</strong> {{ gender|title }}<br><br>
+    <strong>Phone:</strong> {{ phone }}<br><br>
+    <strong>Location:</strong> {{ location.city }}, {{ location.country }}
+    <br><br>
+    <a href="{% url 'hello_world' %}" class="btn btn-secondary">&larr; Back to Home</a>
+</div>
+{% endblock %}

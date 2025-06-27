@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Current Weather{% endblock %}
+{% block body_class %}weather{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Current Weather in {{ city }}</h2>
+
+    <form method="get" style="margin-bottom: 20px;">
+        <label for="city-select"><strong>Select City:</strong></label><br>
+        <select name="city" id="city-select" onchange="this.form.submit()">
+            <option value="Recife" {% if city == 'Recife' %}selected{% endif %}>Recife</option>
+            <option value="London" {% if city == 'London' %}selected{% endif %}>London</option>
+            <option value="New York" {% if city == 'New York' %}selected{% endif %}>New York</option>
+            <option value="Tokyo" {% if city == 'Tokyo' %}selected{% endif %}>Tokyo</option>
+            <option value="Paris" {% if city == 'Paris' %}selected{% endif %}>Paris</option>
+        </select>
+        <noscript><button type="submit">Show Weather</button></noscript>
+    </form>
+
+    <strong>Temperature:</strong> {{ temp_celsius }}&deg;C<br>
+    <strong>Feels Like:</strong> {{ feels_like }}&deg;C<br>
+    <strong>Humidity:</strong> {{ humidity }}%<br>
+    <strong>Wind Speed:</strong> {{ wind_speed }} km/h<br><br>
+    <strong>Description:</strong> {{ description }}
+    <br><br>
+    <a href="{% url 'hello_world' %}" class="btn btn-secondary">&larr; Back to Home</a>
+</div>
+{% endblock %}
